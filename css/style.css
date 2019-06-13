@@ -1,0 +1,20 @@
+.square {
+    min-height: 100px;
+    max-width: 100px;
+}
+
+.one{
+    background-color: blue;
+}
+
+.two{
+    background-color: blueviolet;
+}
+
+.three{ 
+    background-color: crimson
+}
+
+.four{
+    background-color: yellow;
+}
