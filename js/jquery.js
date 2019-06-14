@@ -3,13 +3,14 @@ let squareOne = $('.two')
 let squareTwo = $('.three')
 let squareThree = $('.four')
 
+// Global variable to use doing the game sequence 
 let sequence = []
 let userSequence = []
 let num = 0
 let isOn = true
 let round = 1
 let isComputer = true
-let isWinner = false
+let isWinner = true
 let gameLoop = 0
 let isCorrect = true
 
@@ -24,21 +25,41 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; 
   }
 
+  $.fn.getLightSequence = function(){
+    num = getRandomInt(0 , 4)
+    sequence.push(num)
+  }
+
 $.fn.gameSequence = function(){
   
+  
+    if (userSequence.length == round){
+        isComputer = false 
+        clearInterval(gameLoop)
+        $.fn.colorReset()
+    }
+
+    if(isComputer){
+        $.fn.getLightSequence()
+        
+        $.fn.colorReset()
+        setTimeout(() => {
+            console.log(sequence[counter])
+            counter++
+
+        }, 300)
+
+    }
     
 }
 
-$.fn.newGame = function (){
-    if (userSequence.length == round){
-        isComputer = false
 
-    }
-    num = getRandomInt(0 , 4)
-    sequence.push(num)
-    sequence.forEach(element => {
-        console.log(element)
-    });
+
+$.fn.newGame = function (){
+
+    isWinner = false 
+    gameLoop = setInterval($.fn.gameSequence(), 800)
+}
 
 
 
@@ -67,6 +88,10 @@ $.fn.checkLength = function(){
     }
 }
 
+$.fn.colorReset = function() {
+    console.log("the color is reset")
+}
+
 squareZero.on('click', ()=> {
     squareZero.clickIndicator()
 })
@@ -81,6 +106,8 @@ squareThree.on('click', function() {
 })
 
 
-gameLoop = setInterval(function(){$.fn.gameSequence()},3000)
-
+$.fn.newGame()
+$.fn.newGame()
+$.fn.newGame()
+$.fn.newGame()
 
