@@ -5,8 +5,15 @@ let squareThree = $('.four')
 
 let sequence = []
 let userSequence = []
-let num
+let num = 0
 let isOn = true
+let round = 1
+let isComputer = true
+let isWinner = false
+let gameLoop = 0
+let isCorrect = true
+
+
 
 
 
@@ -18,18 +25,20 @@ function getRandomInt(min, max) {
   }
 
 $.fn.gameSequence = function(){
+  
+    
+}
+
+$.fn.newGame = function (){
+    if (userSequence.length == round){
+        isComputer = false
+
+    }
     num = getRandomInt(0 , 4)
     sequence.push(num)
     sequence.forEach(element => {
         console.log(element)
     });
-    
-}
-
-$.fn.newGame = function (){
-    userSequence = []
-    $.fn.gameSequence()
-}
 
 
 
@@ -72,10 +81,6 @@ squareThree.on('click', function() {
 })
 
 
-   
-$.fn.gameSequence()
-$.fn.gameSequence()
-$.fn.gameSequence()
-$.fn.gameSequence()
+gameLoop = setInterval(function(){$.fn.gameSequence()},3000)
 
 
