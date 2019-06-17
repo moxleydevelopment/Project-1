@@ -1,7 +1,7 @@
-let squareZero = $('.one')
-let squareOne = $('.two')
-let squareTwo = $('.three')
-let squareThree = $('.four')
+let squareZero = $('.zero')
+let squareOne = $('.one')
+let squareTwo = $('.two')
+let squareThree = $('.three')
 
 // Global variable to use doing the game sequence 
 let sequence = []
@@ -72,6 +72,29 @@ $.fn.newGame = function (){
     gameLoop = setInterval($.fn.gameSequence(), 800)
 }
 
+$.fn.Zero = function(){
+    //if(noise) {}
+
+    squareZero.style.backgroundcolor = "lightblue"
+}
+
+$.fn.Zero = function(){
+    //if(noise) {}
+
+    squareZero.style.backgroundcolor = "lightblue"
+}
+
+$.fn.Zero = function(){
+    //if(noise) {}
+
+    squareZero.style.backgroundcolor = "lightblue"
+}
+
+$.fn.Zero = function(){
+    //if(noise) {}
+
+    squareZero.style.backgroundcolor = "lightblue"
+}
 
 
 $.fn.clickIndicator = function(callback){
