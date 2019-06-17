@@ -13,7 +13,7 @@ let isComputer = true
 let isWinner = true
 let gameLoop = 0
 let isCorrect = true
-
+let counter = 0
 
 
 
@@ -26,22 +26,22 @@ function getRandomInt(min, max) {
   }
 
   $.fn.getLightSequence = function(){
-    num = getRandomInt(0 , 4)
-    sequence.push(num)
+      for( let i = 0; i < 10; i++){
+        num = getRandomInt(0 , 4)
+        sequence.push(num)
+        
+      }
   }
 
 $.fn.gameSequence = function(){
   
-  
-    if (userSequence.length == round){
+ if (userSequence.length == round){
         isComputer = false 
         clearInterval(gameLoop)
         $.fn.colorReset()
     }
 
     if(isComputer){
-        $.fn.getLightSequence()
-        
         $.fn.colorReset()
         setTimeout(() => {
             console.log(sequence[counter])
@@ -58,6 +58,7 @@ $.fn.gameSequence = function(){
 $.fn.newGame = function (){
 
     isWinner = false 
+    $.fn.getLightSequence()
     gameLoop = setInterval($.fn.gameSequence(), 800)
 }
 
@@ -66,6 +67,8 @@ $.fn.newGame = function (){
 $.fn.clickIndicator = function(callback){
    userSequence.push(this.attr('id'))
    console.log(this.attr('id'))
+    
+
 
 }
 
@@ -107,7 +110,5 @@ squareThree.on('click', function() {
 
 
 $.fn.newGame()
-$.fn.newGame()
-$.fn.newGame()
-$.fn.newGame()
+
 
