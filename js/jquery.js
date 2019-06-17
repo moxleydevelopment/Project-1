@@ -36,6 +36,7 @@ function getRandomInt(min, max) {
 
 $.fn.gameSequence = function(){
   isOn = false
+  console.log(round)
  if (counter == round){
         console.log('here')
         clearInterval(gameLoop) 
@@ -47,7 +48,7 @@ $.fn.gameSequence = function(){
 
     if(isComputer){
         $.fn.colorReset() 
-        console.log('here' + counter)
+        console.log('counter = ' + counter)
         setTimeout(() => {
             if(sequence[counter] == 0){
                 console.log("zero")
@@ -68,7 +69,7 @@ $.fn.gameSequence = function(){
             counter++
 
 
-        }, 600)
+        }, 200)
 
     }
     
@@ -82,7 +83,7 @@ $.fn.newGame = function (){
     isComputer = true
     isCorrect = true
     $.fn.getLightSequence()
-    gameLoop = setInterval($.fn.gameSequence(), 1000)
+    gameLoop = setInterval(function() {$.fn.gameSequence()}, 800)
 }
 
 $.fn.zero = function(){
@@ -122,14 +123,32 @@ $.fn.clickIndicator = function(callback){
 
 $.fn.checkSequence = function(){
     let check = (userSequence.length - 1)
+    console.log( check)
     if (userSequence[check] !== sequence[check]){
        isCorrect = false
     }
-    if(userSequence.lenght == 10 & isCorrect){
-        $.fn.playerWon()
+    if((userSequence.lenght == 10) && isCorrect){
+        //$.fn.playerWon()
+        console.log("you won")
     }
-    if(isCorrect == false){
+    if(isCorrect === false){
+        console.log('check to see if incorrect')
         // function to flash color 
+        setTimeout(() =>{
+            $.fn.colorReset()
+
+        })
+    }
+
+    if (round == userSequence.length){
+        console.log('check to see if correct')
+        if(isCorrect && !isWinner){
+            round++ 
+            userSequence = []
+            isComputer = true
+            counter = 0
+            gameLoop = setInterval($.fn.gameSequence(), 1000)
+        }
     }
 
    
@@ -145,51 +164,56 @@ $.fn.colorReset = function() {
 }
 
 squareZero.on('click', ()=> {
-    if(isOn){
+    if(isOn == true){
+        console.log('zero was clicked')
     squareZero.clickIndicator() 
     $.fn.checkSequence() 
     $.fn.zero()
     }
     if(!isWinner){
+        console.log(isOn)
         setTimeout(() => {
-         $.fn.colorReset(), 200
+         $.fn.colorReset(), 300
         })  
     }
 })
 squareOne.on('click', function() {
-    if(isOn){
+    if(isOn == true){
+        console.log('one was clicked')
         squareOne.clickIndicator() 
         $.fn.checkSequence() 
         $.fn.one()
         }
         if(!isWinner){
             setTimeout(() => {
-             $.fn.colorReset(), 200
+             $.fn.colorReset(), 300
             })  
         }
     
 })
 squareTwo.on('click', function() {
-    if(isOn){
+    if(isOn == true){
+        console.log('two was clicked')
         squareTwo.clickIndicator() 
         $.fn.checkSequence() 
         $.fn.two()
         }
         if(!isWinner){
             setTimeout(() => {
-             $.fn.colorReset(), 200
+             $.fn.colorReset(), 300
             })  
         }
 })
 squareThree.on('click', function() {
-    if(isOn){
+    if(isOn == true){
+        console.log('three was clicked')
         squareThree.clickIndicator() 
         $.fn.checkSequence() 
         $.fn.three()
         }
         if(!isWinner){
             setTimeout(() => {
-             $.fn.colorReset(), 200
+             $.fn.colorReset(), 300
             })  
         }
 })
