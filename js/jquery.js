@@ -35,9 +35,9 @@ function getRandomInt(min, max) {
   }
 
 $.fn.gameSequence = function(){
-  
+  isOn = false
  if (counter == round){
-       isOn = false
+        console.log('here')
         clearInterval(gameLoop) 
         isComputer = false 
         $.fn.colorReset()
@@ -46,7 +46,8 @@ $.fn.gameSequence = function(){
     }
 
     if(isComputer){
-        $.fn.colorReset()
+        $.fn.colorReset() 
+        console.log('here' + counter)
         setTimeout(() => {
             if(sequence[counter] == 0){
                 console.log("zero")
@@ -67,7 +68,7 @@ $.fn.gameSequence = function(){
             counter++
 
 
-        }, 200)
+        }, 600)
 
     }
     
@@ -79,8 +80,9 @@ $.fn.newGame = function (){
 
     isWinner = false 
     isComputer = true
+    isCorrect = true
     $.fn.getLightSequence()
-    gameLoop = setInterval($.fn.gameSequence(), 800)
+    gameLoop = setInterval($.fn.gameSequence(), 1000)
 }
 
 $.fn.zero = function(){
@@ -119,18 +121,17 @@ $.fn.clickIndicator = function(callback){
 }
 
 $.fn.checkSequence = function(){
-    let check = (userSequence.length - 1) 
-    console.log(check)
-    if (userSequence[check] === sequence[check]){
-        console.log("this is correct")
-        round++
-        counter = 0
-        setInterval($.fn.gameSequence(), 800)
-
-    } else {
-        console.log("this is  not correct")
-
+    let check = (userSequence.length - 1)
+    if (userSequence[check] !== sequence[check]){
+       isCorrect = false
     }
+    if(userSequence.lenght == 10 & isCorrect){
+        $.fn.playerWon()
+    }
+    if(isCorrect == false){
+        // function to flash color 
+    }
+
    
 }
 
@@ -144,37 +145,53 @@ $.fn.colorReset = function() {
 }
 
 squareZero.on('click', ()=> {
-    squareZero.clickIndicator()
+    if(isOn){
+    squareZero.clickIndicator() 
+    $.fn.checkSequence() 
     $.fn.zero()
-    $.fn.checkSequence()
-    setTimeout(() => {
-        $.fn.colorReset(), 200
-    }) 
+    }
+    if(!isWinner){
+        setTimeout(() => {
+         $.fn.colorReset(), 200
+        })  
+    }
 })
 squareOne.on('click', function() {
-    squareOne.clickIndicator()
-    $.fn.one()
-    $.fn.checkSequence() 
-    setTimeout(() => {
-        $.fn.colorReset(), 200
-    }) 
+    if(isOn){
+        squareOne.clickIndicator() 
+        $.fn.checkSequence() 
+        $.fn.one()
+        }
+        if(!isWinner){
+            setTimeout(() => {
+             $.fn.colorReset(), 200
+            })  
+        }
     
 })
 squareTwo.on('click', function() {
-    squareTwo.clickIndicator()
-    $.fn.two()
-    $.fn.checkSequence() 
-    setTimeout(() => {
-        $.fn.colorReset(), 200
-    }) 
+    if(isOn){
+        squareTwo.clickIndicator() 
+        $.fn.checkSequence() 
+        $.fn.two()
+        }
+        if(!isWinner){
+            setTimeout(() => {
+             $.fn.colorReset(), 200
+            })  
+        }
 })
 squareThree.on('click', function() {
-    squareThree.clickIndicator()
-    $.fn.three()
-    $.fn.checkSequence() 
-    setTimeout(() => {
-        $.fn.colorReset(), 200
-    }) 
+    if(isOn){
+        squareThree.clickIndicator() 
+        $.fn.checkSequence() 
+        $.fn.three()
+        }
+        if(!isWinner){
+            setTimeout(() => {
+             $.fn.colorReset(), 200
+            })  
+        }
 })
 
 
