@@ -100,6 +100,13 @@ $.fn.three = function(){
     squareThree.css("background-color", "gold")
 }
 
+$.fn.colorReset = function(){
+    squareZero.css("background-color", "blue") 
+    squareOne.css("background-color", "purple")
+    squareTwo.css("background-color", "red")
+    squareThree.css("background-color", "yellow")
+}
+
 
 $.fn.clickIndicator = function(callback){
    userSequence.push(this.attr('id'))
