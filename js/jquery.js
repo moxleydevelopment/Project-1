@@ -35,7 +35,7 @@ function getRandomInt(min, max) {
 
 $.fn.gameSequence = function(){
   
- if (userSequence.length == round){
+ if (counter == round){
         isComputer = false 
         clearInterval(gameLoop)
         $.fn.colorReset()
@@ -44,8 +44,18 @@ $.fn.gameSequence = function(){
     if(isComputer){
         $.fn.colorReset()
         setTimeout(() => {
-            console.log(sequence[counter])
-            counter++
+            if(sequence[counter] == 0){
+                console.log("zero")
+            }
+            if(sequence[counter] == 1){
+                console.log("one")
+            }
+            if(sequence[counter] == 2){
+                console.log("two")
+            }
+            if(sequence[counter] == 3){
+                console.log("three")
+            }
 
         }, 300)
 
