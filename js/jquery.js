@@ -7,12 +7,12 @@ let squareThree = $('.three')
 let sequence = []
 let userSequence = []
 let num = 0
-let isOn = true
+let isOn 
 let round = 1
-let isComputer = true
-let isWinner = true
-let gameLoop = 0
-let isCorrect = true
+let isComputer 
+let isWinner 
+let gameLoop 
+let isCorrect
 let counter = 0
 
 
@@ -36,9 +36,12 @@ function getRandomInt(min, max) {
 $.fn.gameSequence = function(){
   
  if (counter == round){
+       isOn = false
+        clearInterval(gameLoop) 
         isComputer = false 
-        clearInterval(gameLoop)
         $.fn.colorReset()
+        isOn = true
+        
     }
 
     if(isComputer){
@@ -60,8 +63,10 @@ $.fn.gameSequence = function(){
                 console.log("three")
                 $.fn.three()
             }
+            counter++
 
-        }, 300)
+
+        }, 200)
 
     }
     
@@ -72,6 +77,8 @@ $.fn.gameSequence = function(){
 $.fn.newGame = function (){
 
     isWinner = false 
+    isComputer = true
+    gameLoop = 0
     $.fn.getLightSequence()
     gameLoop = setInterval($.fn.gameSequence(), 800)
 }
@@ -100,12 +107,7 @@ $.fn.three = function(){
     squareThree.css("background-color", "gold")
 }
 
-$.fn.colorReset = function(){
-    squareZero.css("background-color", "blue") 
-    squareOne.css("background-color", "purple")
-    squareTwo.css("background-color", "red")
-    squareThree.css("background-color", "yellow")
-}
+
 
 
 $.fn.clickIndicator = function(callback){
@@ -117,13 +119,7 @@ $.fn.clickIndicator = function(callback){
 }
 
 $.fn.checkSequence = function(){
-    for ( let i = 0; i < sequence.length;i++){
-        if (sequence[i] != userSequence[i]){
-            console.log('game over')
-        }    
-    }
-
-    $.fn.newGame()
+   
 }
 
 $.fn.checkLength = function(){
@@ -136,20 +132,27 @@ $.fn.checkLength = function(){
 }
 
 $.fn.colorReset = function() {
-    console.log("the color is reset")
+    squareZero.css("background-color", "blue") 
+    squareOne.css("background-color", "purple")
+    squareTwo.css("background-color", "red")
+    squareThree.css("background-color", "yellow")
 }
 
 squareZero.on('click', ()=> {
     squareZero.clickIndicator()
+    $.fn.checkSequence() 
 })
 squareOne.on('click', function() {
     squareOne.clickIndicator()
+    $.fn.checkSequence() 
 })
 squareTwo.on('click', function() {
     squareTwo.clickIndicator()
+    $.fn.checkSequence() 
 })
 squareThree.on('click', function() {
     squareThree.clickIndicator()
+    $.fn.checkSequence() 
 })
 
 
