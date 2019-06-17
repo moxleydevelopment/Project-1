@@ -46,15 +46,19 @@ $.fn.gameSequence = function(){
         setTimeout(() => {
             if(sequence[counter] == 0){
                 console.log("zero")
+                $.fn.zero()
             }
             if(sequence[counter] == 1){
                 console.log("one")
+                $.fn.one()
             }
             if(sequence[counter] == 2){
                 console.log("two")
+                $.fn.two()
             }
             if(sequence[counter] == 3){
                 console.log("three")
+                $.fn.three()
             }
 
         }, 300)
@@ -72,28 +76,28 @@ $.fn.newGame = function (){
     gameLoop = setInterval($.fn.gameSequence(), 800)
 }
 
-$.fn.Zero = function(){
+$.fn.zero = function(){
     //if(noise) {}
 
-    squareZero.style.backgroundcolor = "lightblue"
+    squareZero.css("background-color", "lightblue")
 }
 
-$.fn.Zero = function(){
+$.fn.one = function(){
     //if(noise) {}
 
-    squareZero.style.backgroundcolor = "lightblue"
+    squareOne.css("background-color", "pink")
 }
 
-$.fn.Zero = function(){
+$.fn.two = function(){
     //if(noise) {}
 
-    squareZero.style.backgroundcolor = "lightblue"
+    squareTwo.css("background-color", "darkred")
 }
 
-$.fn.Zero = function(){
+$.fn.three = function(){
     //if(noise) {}
 
-    squareZero.style.backgroundcolor = "lightblue"
+    squareThree.css("background-color", "gold")
 }
 
 
