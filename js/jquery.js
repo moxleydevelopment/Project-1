@@ -30,6 +30,7 @@ function getRandomInt(min, max) {
         num = getRandomInt(0 , 4)
         sequence.push(num)
         
+        
       }
   }
 
@@ -78,7 +79,6 @@ $.fn.newGame = function (){
 
     isWinner = false 
     isComputer = true
-    gameLoop = 0
     $.fn.getLightSequence()
     gameLoop = setInterval($.fn.gameSequence(), 800)
 }
@@ -111,7 +111,7 @@ $.fn.three = function(){
 
 
 $.fn.clickIndicator = function(callback){
-   userSequence.push(this.attr('id'))
+   userSequence.push(Number(this.attr('id')))
    console.log(this.attr('id'))
     
 
@@ -119,17 +119,22 @@ $.fn.clickIndicator = function(callback){
 }
 
 $.fn.checkSequence = function(){
+    let check = (userSequence.length - 1) 
+    console.log(check)
+    if (userSequence[check] === sequence[check]){
+        console.log("this is correct")
+        round++
+        counter = 0
+        setInterval($.fn.gameSequence(), 800)
+
+    } else {
+        console.log("this is  not correct")
+
+    }
    
 }
 
-$.fn.checkLength = function(){
-    if (sequence.length === userSequence.length){
-        $.fn.checkSequence()
-    }
-    else {
-      console.log('this is the else')
-    }
-}
+
 
 $.fn.colorReset = function() {
     squareZero.css("background-color", "blue") 
@@ -140,19 +145,36 @@ $.fn.colorReset = function() {
 
 squareZero.on('click', ()=> {
     squareZero.clickIndicator()
-    $.fn.checkSequence() 
+    $.fn.zero()
+    $.fn.checkSequence()
+    setTimeout(() => {
+        $.fn.colorReset(), 200
+    }) 
 })
 squareOne.on('click', function() {
     squareOne.clickIndicator()
+    $.fn.one()
     $.fn.checkSequence() 
+    setTimeout(() => {
+        $.fn.colorReset(), 200
+    }) 
+    
 })
 squareTwo.on('click', function() {
     squareTwo.clickIndicator()
+    $.fn.two()
     $.fn.checkSequence() 
+    setTimeout(() => {
+        $.fn.colorReset(), 200
+    }) 
 })
 squareThree.on('click', function() {
     squareThree.clickIndicator()
+    $.fn.three()
     $.fn.checkSequence() 
+    setTimeout(() => {
+        $.fn.colorReset(), 200
+    }) 
 })
 
 
