@@ -147,7 +147,7 @@ $.fn.checkSequence = function(){
             userSequence = []
             isComputer = true
             counter = 0
-            gameLoop = setInterval($.fn.gameSequence(), 1000)
+            gameLoop = setInterval(function() {$.fn.gameSequence()}, 800)
         }
     }
 
