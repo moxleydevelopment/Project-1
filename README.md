@@ -12,5 +12,12 @@
 
 ![alt text](https://i.imgur.com/XDsb4H2.png "Beginning mock up of project")
 
+[Project Board](https://github.com/moxleydevelopment/Project-1/projects/1)
+
 <p>In the beggining the desired look was an exact replica of the tangible game, will all real life functionality to create a more varient experience for the user. Due to certian unforseen issues that plan was deviated from for a more simplistic user interface in order to provide a usable product<p>
+
+
+![alt text](https://i.imgur.com/jjfr3sx.png "ending product")
+
+[Play Simon Says!](https://app.netlify.com/sites/quizzical-morse-68f010/overview)
 
