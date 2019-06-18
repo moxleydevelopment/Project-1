@@ -12,4 +12,5 @@
 
 ![alt text](https://i.imgur.com/XDsb4H2.png "Beginning mock up of project")
 
-<p>In the beggining the desired look was an exact replica of the tangible game, will all real life functionality to create a more varient experience for the user<p>
+<p>In the beggining the desired look was an exact replica of the tangible game, will all real life functionality to create a more varient experience for the user. Due to certian unforseen issues that plan was deviated from for a more simplistic user interface in order to provide a usable product<p>
+
