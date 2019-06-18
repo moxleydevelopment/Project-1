@@ -1,3 +1,4 @@
+// Targert that I need from html to manipulate
 let squareZero = $('.zero')
 let squareOne = $('.one')
 let squareTwo = $('.two')
@@ -17,18 +18,19 @@ let isWinner
 let gameLoop
 let isCorrect
 let counter = 0
-
+// The display for the round and win/ lose status
 displayRound.text('0' + round)
 
 
 
-
+// This function generates a random between 0 and 3 inclusive
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// This function populates an array that will hold the color sequence 
 $.fn.getLightSequence = function () {
     for (let i = 0; i < 10; i++) {
         num = getRandomInt(0, 4)
@@ -39,10 +41,12 @@ $.fn.getLightSequence = function () {
 }
 
 
-
+// The setting for the game turn are held in this game sequence that will 
+// repeat ever 800 milliseconds until the interval is cleared 
 $.fn.gameSequence = function () {
     isOn = false
 
+// these are the settings for when it is the uers turn to play the game 
     if (counter == round) {
         clearInterval(gameLoop)
         isComputer = false
@@ -50,7 +54,7 @@ $.fn.gameSequence = function () {
         isOn = true
 
     }
-
+// the settings for when the computer is flashing the color sequence
     if (isComputer) {
         $.fn.colorReset()
         setTimeout(function () {
@@ -76,7 +80,7 @@ $.fn.gameSequence = function () {
 }
 
 
-
+// This is the function that will start the game when the start button is pressed
 $.fn.newGame = function () {
 
     isWinner = false
@@ -86,36 +90,38 @@ $.fn.newGame = function () {
     gameLoop = setInterval(function () { $.fn.gameSequence() }, 800)
 }
 
+// the follow functions play the audio for each color
+//changes the color background to simulate lighting of the color
+
 $.fn.zero = function () {
     document.getElementById('audioZero').play()
     squareZero.css("background-color", "lightgreen")
-    squareZero.addClass('animate pulse')
-}
+    
 
 $.fn.one = function () {
 
     document.getElementById('audioOne').play()
     squareOne.css("background-color", "red")
-    squareOne.addClass('animate pulse')
+    
 }
 
 $.fn.two = function () {
 
     document.getElementById('audioTwo').play()
     squareTwo.css("background-color", "lightblue")
-    squareTwo.addClass('animate pulse')
-}
+   
 
 $.fn.three = function () {
 
     document.getElementById('audioThree').play()
     squareThree.css("background-color", "yellow")
-    squareThree.addClass('animate pulse')
+    
 }
 
 
 
-
+// Function that grabs the id of the color being pressed to add to the 
+// user sequence array
 $.fn.clickIndicator = function (callback) {
     userSequence.push(Number(this.attr('id')))
 
@@ -123,6 +129,9 @@ $.fn.clickIndicator = function (callback) {
 
 
 }
+
+// checks the corrects of the button pressed with the sequence of colors 
+// that has been flashed by the computer 
 
 $.fn.checkSequence = function () {
     let check = (userSequence.length - 1)
