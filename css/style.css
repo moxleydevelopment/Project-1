@@ -6,6 +6,8 @@ body {
 
 }
 
+
+
 .game-header {
     grid-column: 1 / span 6;
     grid-row: 1/ span 2;
@@ -22,6 +24,8 @@ body {
     width: 100px;
     justify-self: center;
     align-self: center;
+    font-family: 'cursed_timer_ulilregular';
+    
     
 }
 

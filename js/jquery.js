@@ -2,6 +2,7 @@ let squareZero = $('.zero')
 let squareOne = $('.one')
 let squareTwo = $('.two')
 let squareThree = $('.three')
+let startBtn = $('.start')
 
 // Global variable to use doing the game sequence 
 let sequence = []
@@ -215,6 +216,8 @@ squareThree.on('click', function() {
 })
 
 
-$.fn.newGame()
+startBtn.on('click', function(){
+    $.fn.newGame()
+})
 
 
