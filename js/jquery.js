@@ -48,23 +48,18 @@ $.fn.gameSequence = function(){
 
     if(isComputer){
         $.fn.colorReset() 
-        console.log('counter = ' + counter)
         setTimeout(() => {
             if(sequence[counter] == 0){
-                console.log("zero")
                 $.fn.zero()
             }
             if(sequence[counter] == 1){
-                console.log("one")
                 $.fn.one()
             }
             if(sequence[counter] == 2){
-                console.log("two")
-                $.fn.two()
+               $.fn.two()
             }
             if(sequence[counter] == 3){
-                console.log("three")
-                $.fn.three()
+               $.fn.three()
             }
             counter++
 
@@ -87,27 +82,26 @@ $.fn.newGame = function (){
 }
 
 $.fn.zero = function(){
-    //if(noise) {}
-
-    squareZero.css("background-color", "lightblue")
+    document.getElementById('audioZero').play()
+    squareZero.css("background-color", "lightgreen")
 }
 
 $.fn.one = function(){
-    //if(noise) {}
-
-    squareOne.css("background-color", "pink")
+    
+    document.getElementById('audioOne').play()
+    squareOne.css("background-color", "red")
 }
 
 $.fn.two = function(){
-    //if(noise) {}
-
-    squareTwo.css("background-color", "darkred")
+   
+    document.getElementById('audioTwo').play()
+    squareTwo.css("background-color", "lightblue")
 }
 
 $.fn.three = function(){
-    //if(noise) {}
-
-    squareThree.css("background-color", "gold")
+   
+    document.getElementById('audioThree').play()
+    squareThree.css("background-color", "yellow")
 }
 
 
@@ -115,7 +109,7 @@ $.fn.three = function(){
 
 $.fn.clickIndicator = function(callback){
    userSequence.push(Number(this.attr('id')))
-   console.log(this.attr('id'))
+  
     
 
 
@@ -157,10 +151,10 @@ $.fn.checkSequence = function(){
 
 
 $.fn.colorReset = function() {
-    squareZero.css("background-color", "blue") 
-    squareOne.css("background-color", "purple")
-    squareTwo.css("background-color", "red")
-    squareThree.css("background-color", "yellow")
+    squareZero.css("background-color", "darkgreen") 
+    squareOne.css("background-color", "darkred")
+    squareTwo.css("background-color", "darkblue")
+    squareThree.css("background-color", "goldenrod")
 }
 
 squareZero.on('click', ()=> {
@@ -173,7 +167,7 @@ squareZero.on('click', ()=> {
     if(!isWinner){
         console.log(isOn)
         setTimeout(() => {
-         $.fn.colorReset(), 300
+         $.fn.colorReset(), 600
         })  
     }
 })
@@ -186,7 +180,7 @@ squareOne.on('click', function() {
         }
         if(!isWinner){
             setTimeout(() => {
-             $.fn.colorReset(), 300
+             $.fn.colorReset(), 600
             })  
         }
     
@@ -200,7 +194,7 @@ squareTwo.on('click', function() {
         }
         if(!isWinner){
             setTimeout(() => {
-             $.fn.colorReset(), 300
+             $.fn.colorReset(), 600
             })  
         }
 })
@@ -213,7 +207,7 @@ squareThree.on('click', function() {
         }
         if(!isWinner){
             setTimeout(() => {
-             $.fn.colorReset(), 300
+             $.fn.colorReset(), 600
             })  
         }
 })

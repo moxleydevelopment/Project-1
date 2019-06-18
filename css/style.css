@@ -52,7 +52,7 @@ h3 {
 }
 
 .zero{
-    background-color: green;
+    background-color: darkgreen;
     grid-row: 4/ span 2;
     grid-column: 2/ span 2;
     
@@ -60,19 +60,19 @@ h3 {
 }
 
 .one{
-    background-color: red;
+    background-color: darkred;
     grid-row: 4/ span 2;
     grid-column: 4/ span 2;
 }
 
 .two{ 
-    background-color: blue;
+    background-color: darkblue;
     grid-row: 8/ span 2;
     grid-column: 2/ span 2;
 }
 
 .three{
-    background-color: yellow;
+    background-color: goldenrod;
     grid-row: 8/ span 2;
     grid-column: 4/ span 2;
 }
