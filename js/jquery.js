@@ -126,13 +126,11 @@ $.fn.clickIndicator = function (callback) {
 
 $.fn.checkSequence = function () {
     let check = (userSequence.length - 1)
-    console.log(isCorrect)
-    console.log(userSequence.length)
 
     if (userSequence[check] !== sequence[check]) {
         isCorrect = false
     }
-    if ((userSequence.length === 2) && (isCorrect == true)) {
+    if ((userSequence.length === 5) && (isCorrect == true)) {
         displayRound.text('PLAYER WON!!')
         isWinner = true
     }
