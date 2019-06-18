@@ -10,6 +10,6 @@
 
 <h6>Wireframe<h6>
 
-![alt text](images/Screen Shot 2019-06-12 at 11.22.09 AM.png "Beginning mock up of project")
+![alt text](./images/wireframe1.png "Beginning mock up of project")
 
 <p>In the beggining the desired look was an exact replica of the tangible game, will all real life functionality to create a more varient experience for the user<p>
