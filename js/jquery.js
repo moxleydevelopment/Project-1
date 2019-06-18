@@ -45,7 +45,6 @@ $.fn.getLightSequence = function () {
 // repeat ever 800 milliseconds until the interval is cleared 
 $.fn.gameSequence = function () {
     isOn = false
-}
 // these are the settings for when it is the uers turn to play the game 
     if (counter == round) {
         clearInterval(gameLoop)
