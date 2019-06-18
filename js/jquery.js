@@ -45,7 +45,7 @@ $.fn.getLightSequence = function () {
 // repeat ever 800 milliseconds until the interval is cleared 
 $.fn.gameSequence = function () {
     isOn = false
-
+}
 // these are the settings for when it is the uers turn to play the game 
     if (counter == round) {
         clearInterval(gameLoop)
@@ -96,7 +96,8 @@ $.fn.newGame = function () {
 $.fn.zero = function () {
     document.getElementById('audioZero').play()
     squareZero.css("background-color", "lightgreen")
-    
+}
+
 
 $.fn.one = function () {
 
@@ -109,7 +110,7 @@ $.fn.two = function () {
 
     document.getElementById('audioTwo').play()
     squareTwo.css("background-color", "lightblue")
-   
+}
 
 $.fn.three = function () {
 
@@ -172,7 +173,7 @@ $.fn.checkSequence = function () {
 
 }
 
-
+// Function will reset the  color background for the buttons
 
 $.fn.colorReset = function () {
     squareZero.css("background-color", "darkgreen")
@@ -180,6 +181,10 @@ $.fn.colorReset = function () {
     squareTwo.css("background-color", "darkblue")
     squareThree.css("background-color", "goldenrod")
 }
+
+
+
+//add event listeners for the button to be clicked on
 
 squareZero.on('click', function () {
     if (isOn == true) {
@@ -235,5 +240,3 @@ squareThree.on('click', function () {
 startBtn.on('click', function () {
     $.fn.newGame()
 })
-
-
