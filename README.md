@@ -19,5 +19,5 @@
 
 ![alt text](https://i.imgur.com/jjfr3sx.png "ending product")
 
-[Play Simon Says!](https://app.netlify.com/sites/quizzical-morse-68f010/overview)
+[Play Simon Says!](https://quizzical-morse-68f010.netlify.com/)
 
