@@ -3,6 +3,8 @@ let squareOne = $('.one')
 let squareTwo = $('.two')
 let squareThree = $('.three')
 let startBtn = $('.start')
+let displayRound = $('h3')
+
 
 // Global variable to use doing the game sequence 
 let sequence = []
@@ -16,6 +18,7 @@ let gameLoop
 let isCorrect
 let counter = 0
 
+displayRound.text('0'+ round)
 
 
 
@@ -39,7 +42,7 @@ function getRandomInt(min, max) {
 
 $.fn.gameSequence = function(){
   isOn = false
-  console.log(round)
+  
  if (counter == round){
         console.log('here')
         clearInterval(gameLoop) 
@@ -133,8 +136,8 @@ $.fn.checkSequence = function(){
         console.log("you won")
     }
     if(isCorrect === false){
-        console.log('check to see if incorrect')
-        // function to flash color 
+        
+        document.getElementById('game-over').play()
         setTimeout(() =>{
             $.fn.colorReset()
 
@@ -142,9 +145,14 @@ $.fn.checkSequence = function(){
     }
 
     if (round == userSequence.length){
-        console.log('check to see if correct')
         if(isCorrect && !isWinner){
             round++ 
+            if(round < 10){
+                displayRound.text('0'+ round)
+            }
+            else {
+                displayRound.text(round)
+            }
             userSequence = []
             isComputer = true
             counter = 0
