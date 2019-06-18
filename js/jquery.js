@@ -44,7 +44,6 @@ $.fn.gameSequence = function(){
   isOn = false
   
  if (counter == round){
-        console.log('here')
         clearInterval(gameLoop) 
         isComputer = false 
         $.fn.colorReset()
@@ -127,17 +126,20 @@ $.fn.clickIndicator = function(callback){
 
 $.fn.checkSequence = function(){
     let check = (userSequence.length - 1)
-    console.log( check)
+    console.log( isCorrect)
+    console.log( userSequence.length)
+   
     if (userSequence[check] !== sequence[check]){
        isCorrect = false
     }
-    if((userSequence.lenght == 10) && isCorrect){
-        //$.fn.playerWon()
-        console.log("you won")
+     if((userSequence.length === 2) && (isCorrect == true)){
+        displayRound.text('PLAYER WON!!')
+        isWinner = true
     }
     if(isCorrect === false){
         
         document.getElementById('game-over').play()
+        displayRound.text('GAME OVER')
         setTimeout(() =>{
             $.fn.colorReset()
 
@@ -179,7 +181,6 @@ squareZero.on('click', function() {
     $.fn.zero()
     }
     if(!isWinner){
-        console.log(isOn)
         setTimeout(function() {
          $.fn.colorReset(), 1600
         })  
